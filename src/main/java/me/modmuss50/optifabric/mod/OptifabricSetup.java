@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import com.google.common.base.MoreObjects;
 
+import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import org.apache.commons.lang3.tuple.Pair;
 
 import org.apache.logging.log4j.LogManager;
@@ -53,6 +54,7 @@ public class OptifabricSetup implements Runnable {
 	public void run() {
 		MixinInternals.registerExtension(new MixinFixerExtension());
 		Mixins.registerErrorHandlerClass(OptifabricMixinErrorHandler.class.getName());
+		MixinExtrasBootstrap.init();
 
 		OptifineInjector injector;
 		try {
